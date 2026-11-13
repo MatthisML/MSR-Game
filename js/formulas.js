@@ -1,0 +1,68 @@
+/* Formelsammlung. day = Tag, an dem die Formel freigeschaltet wird; ref = Gleichungsnummer im Skript */
+(function (M) {
+  const F = (id, ch, day, name, f, sym, ref) => M.formulas.push({ id, ch, day, name, f, sym, ref });
+  // ---- Messen ----
+  F('eps', 'Messen', 1, 'Empfindlichkeit eines Messglieds', 'ε = {dy}/{dx}', 'y Ausgangssignal, x Eingangssignal, im Arbeitspunkt', '2.2');
+  F('c', 'Messen', 1, 'Messglied-Koeffizient', 'c = {dx}/{dy} = {1}/{ε}', 'Kehrwert der Empfindlichkeit', '2.3');
+  F('epsM', 'Messen', 1, 'Messketten-Empfindlichkeit', 'ε_M = ε_1 · ε_2 · … · ε_n', 'Produkt aller Einzelempfindlichkeiten', '2.4');
+  F('cM', 'Messen', 1, 'Messketten-Koeffizient', 'c_M = c_1 · c_2 · … · c_n', 'Produkt aller Koeffizienten', '2.5');
+  F('fabs', 'Messen', 2, 'Systematische Messabweichung', 'F_{abs} = y_i − y_s', 'y_i Istwert, y_s Sollwert', '2.6');
+  F('f0', 'Messen', 2, 'Nullpunktabweichung', 'F_0 = y_{0i} − y_{0s}', 'Abweichung am Anfang des Messbereichs', '2.7');
+  F('mittel', 'Messen', 3, 'Arithmetischer Mittelwert', 'x̄ = {1}/{n} · Σ x_i', 'n Einzelmessungen x_i', '2.8');
+  F('s', 'Messen', 3, 'Standardabweichung der Stichprobe', 's = √{ {1}/{n − 1} · Σ (x_i − x̄)^2 }', 'Maß für die Streuung der Einzelwerte', '2.9');
+  F('u', 'Messen', 3, 'Standardmessunsicherheit des Mittelwerts', 'u(x̄) = {s}/{√{n}}', '', '2.10');
+  F('xM', 'Messen', 3, 'Messergebnis mit Vertrauensbereich', 'x_M = x̄ ± {t · s}/{√{n}}', 't aus Tabelle (abhängig von n und P)', '2.14');
+  F('gauss', 'Messen', 4, 'Gaußsches Fehlerfortpflanzungsgesetz', 'u(z) = √{ Σ ( {∂z}/{∂x_j} · u_j )^2 }', 'z = f(x_1 … x_n), u_j Unsicherheit von x_j', '2.15');
+  F('usum', 'Messen', 4, 'Unsicherheit bei Summe und Differenz', 'u(z)^2 = u_1^2 + u_2^2 + u_3^2', 'absolute Unsicherheiten quadratisch addieren', '2.17');
+  F('uprod', 'Messen', 4, 'Unsicherheit bei Produkt und Quotient', '({u(z)}/{z})^2 = ({u_1}/{x_1})^2 + ({u_2}/{x_2})^2 + ({u_3}/{x_3})^2', 'relative Unsicherheiten quadratisch addieren; Potenz x^p zählt p-fach', '2.19');
+  F('lambda', 'Messen', 5, 'Wellenlänge', 'λ = {c}/{f}', 'c Lichtgeschwindigkeit, f Frequenz', '2.22');
+  F('poti', 'Messen', 5, 'Messpotentiometer (belastet)', 'U_M = U_0 · { {s}/{s_{max}} }/{ 1 + {R_0}/{R_B} · {s}/{s_{max}} · (1 − {s}/{s_{max}}) }', 'unbelastet: U_M = U_0 · s/s_max', '2.23');
+  F('kond', 'Messen', 5, 'Plattenkondensator', 'C = ε · ε_0 · {A}/{s}', 'ε_0 = 8,854·10⁻¹² As/(Vm), A Fläche, s Abstand', '2.24');
+  F('lvdt', 'Messen', 5, 'Differentialtransformator', 'U_M = const · U_0 · Δs', 'Messspannung proportional zum Weg', '2.26');
+  F('feder', 'Messen', 6, 'Schraubenfeder', 's = {8 · n · D^3}/{d^4 · G} · F', 'n Windungen, D Windungs-, d Drahtdurchmesser, G Schubmodul', '2.29');
+  F('piezo', 'Messen', 6, 'Piezoelektrischer Effekt', 'Q = k · F', 'Quarz: k = 2,3·10⁻¹² As/N', '2.31');
+  F('rdraht', 'Messen', 6, 'Widerstand eines Drahts', 'R = {4 · ρ · l}/{π · D^2}', 'ρ spezifischer Widerstand, l Länge, D Durchmesser', '2.32');
+  F('dms', 'Messen', 6, 'Dehnungsmessstreifen', '{ΔR}/{R} = k · ε', 'k-Faktor ≈ 2, ε = Δl/l Dehnung', '2.36');
+  F('hooke', 'Messen', 6, 'Hookesches Gesetz', 'σ = E · ε = {F}/{A}', 'E Elastizitätsmodul, A Querschnitt', '');
+  F('pt100', 'Messen', 6, 'PT100 (Skriptwert)', 'R(ϑ) = 100 Ω + 0,4 {Ω}/{K} · ϑ', 'ϑ in °C', '');
+  F('istrom', 'Messen', 7, 'Strommessung (Einfluss R_A)', '{I_M}/{I_K} = {1}/{1 + {R_A}/{R_0}}', 'R_A Innenwiderstand Amperemeter: möglichst klein', '2.41');
+  F('uspann', 'Messen', 7, 'Spannungsmessung (Einfluss R_V)', '{U_M}/{U_L} = {1}/{1 + {R_0}/{R_V}}', 'R_V Innenwiderstand Voltmeter: möglichst groß', '2.42');
+  F('rxI', 'Messen', 7, 'Stromrichtige Widerstandsmessung', 'R_x = {U}/{I} − R_A', '', '2.44');
+  F('rxU', 'Messen', 7, 'Spannungsrichtige Widerstandsmessung', 'R_x = {U}/{I − {U}/{R_V}}', '', '2.45');
+  F('bruecke', 'Messen', 8, 'Brückenspannung', 'U = ( {R_3}/{R_3 + R_4} − {R_1}/{R_1 + R_2} ) · U_0', 'zwei Spannungsteiler', '2.48');
+  F('abgleich', 'Messen', 8, 'Abgeglichene Brücke', 'R_x = R_4 = {R_2 · R_3}/{R_1}', 'gilt bei U = 0 V', '2.49');
+  F('dmsbr', 'Messen', 8, 'DMS-Brücke (kleine Dehnungen)', '{U}/{U_0} = {k}/{4} · (ε_1 − ε_2 + ε_3 − ε_4)', 'Viertelbrücke: k·ε/4; Vollbrücke am Zugstab: k·ε·(1+µ)/2', '');
+  F('binaer', 'Messen', 8, 'Binärzahl', 'N = Σ a_i · 2^i', 'a_i ∈ {0, 1}', '2.50');
+  F('frq', 'Messen', 8, 'Relativer Quantisierungsfehler', 'F_{rq} = {1}/{2^n}', 'n Anzahl Bits; 1 LSB = Messbereich / 2ⁿ', '2.51');
+  F('nyquist', 'Messen', 8, 'Abtasttheorem', 'f_{Abtast} ≥ 2 · f_{Signal}', 'Nyquist-Shannon', '');
+  // ---- Steuern ----
+  F('demorgan1', 'Steuern', 10, 'De Morgan (1)', '¬(a ∧ b) = ¬a ∨ ¬b', '', '');
+  F('demorgan2', 'Steuern', 10, 'De Morgan (2)', '¬(a ∨ b) = ¬a ∧ ¬b', '', '');
+  F('distrib', 'Steuern', 10, 'Distributivgesetz', 'a ∧ (b ∨ c) = (a ∧ b) ∨ (a ∧ c)', 'Ausklammern wie in der normalen Algebra', '');
+  F('absorb', 'Steuern', 10, 'Absorption', 'a ∨ (a ∧ b) = a', 'ebenso: a ∧ (a ∨ b) = a', '');
+  F('kompl', 'Steuern', 10, 'Komplement', 'a ∨ ¬a = 1    a ∧ ¬a = 0', '', '');
+  F('neutral', 'Steuern', 10, 'Neutrale Elemente', 'a ∧ 1 = a    a ∨ 0 = a    a ∨ 1 = 1    a ∧ 0 = 0', '', '');
+  F('xor', 'Steuern', 10, 'XOR (Antivalenz)', 'a ⊕ b = (a ∧ ¬b) ∨ (¬a ∧ b)', 'auch: (a ∨ b) ∧ ¬(a ∧ b)', '');
+  F('ffr', 'Steuern', 11, 'Speicher, Rücksetzen dominiert', 'A = ¬R ∧ (S ∨ Q)', 'Selbsthaltung mit Vorrang AUS', '3.3');
+  F('ffs', 'Steuern', 11, 'Speicher, Setzen dominiert', 'A = S ∨ (Q ∧ ¬R)', '', '');
+  // ---- Regeln ----
+  F('e', 'Regeln', 14, 'Regeldifferenz', 'e = w − y', 'w Führungsgröße, y Regelgröße', '4.21');
+  F('gpt1', 'Regeln', 15, 'PT1-Glied', 'G(s) = {K}/{1 + s·T}    h(t) = K · (1 − e^{−t/T})', 'nach t = T sind 63 % erreicht', 'Abb. 4.16');
+  F('gi', 'Regeln', 15, 'I-Glied', 'G(s) = {K_I}/{s}    h(t) = K_I · t', '', 'Abb. 4.16');
+  F('gpt2', 'Regeln', 15, 'PT2-Glied', 'G(s) = {K}/{1 + {2ϑ}/{ω_0}·s + {1}/{ω_0^2}·s^2}', 'ϑ < 1 schwingt, ϑ ≥ 1 kriecht', '4.29');
+  F('gtt', 'Regeln', 15, 'Totzeitglied', 'G(s) = e^{−s·T_t}', '', 'Abb. 4.16');
+  F('laplace', 'Regeln', 16, 'Laplace-Transformation', 'F(s) = ∫_0^∞ f(t) · e^{−s·t} dt', 'Ableiten ≙ ·s, Integrieren ≙ ·1/s', '4.20');
+  F('reihe', 'Regeln', 16, 'Reihenstruktur', 'G = G_1 · G_2', '', 'Abb. 4.17');
+  F('parallel', 'Regeln', 16, 'Parallelstruktur', 'G = G_1 + G_2', '', 'Abb. 4.17');
+  F('kreis', 'Regeln', 16, 'Kreisstruktur (Gegenkopplung)', 'G = {G_1}/{1 + G_1 · G_2}', '', 'Abb. 4.17');
+  F('trc', 'Regeln', 16, 'Zeitkonstante RC-Glied', 'T = R · C', '', '');
+  F('amp', 'Regeln', 17, 'Amplitudengang PT1', '|G(jω)| = {K}/{√{1 + (ω·T)^2}}', 'in dB: 20·lg|G|', '');
+  F('phase', 'Regeln', 17, 'Phasengang PT1', 'φ(ω) = −arctan(ω·T)', 'bei ω = 1/T: −45°', '');
+  F('rlc', 'Regeln', 17, 'Stromamplitude im RLC-Schwingkreis', 'i_0 = {U_0}/{√{R^2 + (L·ω − {1}/{C·ω})^2}}', 'Resonanz bei ω₀ = 1/√(L·C)', '4.16');
+  F('pid', 'Regeln', 18, 'PID-Regler', 'G_R(s) = K_P · (1 + {1}/{T_I·s} + T_D·s)', 'P: K_P; PI: ohne T_D; PD: ohne T_I', 'Abb. 4.22');
+  F('fuehr', 'Regeln', 18, 'Führungs- und Störverhalten', 'y = {G_R·G_S}/{1 + G_R·G_S} · w + {G_S}/{1 + G_R·G_S} · d', '', '4.23');
+  F('ebleib', 'Regeln', 18, 'Bleibende Regeldifferenz (P-Regler an P-Strecke)', 'e_∞ = {w}/{1 + K_P·K_S}', 'aus Endwertsatz, s → 0', '4.24');
+  F('char', 'Regeln', 19, 'Charakteristische Gleichung', '1 + G_R·G_S = 0', 'ihre Lösungen sind die Pole des Regelkreises', '4.27');
+  F('stabil', 'Regeln', 19, 'Stabilitätsbedingung', 'Re(s_i) < 0  für alle Pole s_i', '', '4.26');
+  F('zn', 'Regeln', 19, 'Ziegler-Nichols (PID)', 'K_P = 0,6·K_{krit}    T_n = 0,5·T_{krit}    T_v = 0,125·T_{krit}', 'P: 0,5·K_krit; PI: 0,45·K_krit, T_n = 0,83·T_krit; PD: 0,8·K_krit, T_v = 0,12·T_krit', 'Abb. 4.32');
+})(window.MSR);
