@@ -1,0 +1,14 @@
+{
+  "name": "Spin Coach",
+  "short_name": "Spin Coach",
+  "description": "Lern- und Analysetool für 3-Max Spin & Gold: Hand-Review per Sprache, Trainer, Ranges, Statistik.",
+  "lang": "de",
+  "start_url": "./#review",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0e1311",
+  "theme_color": "#0e1311",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

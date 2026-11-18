@@ -34,3 +34,7 @@ tk('boole', 'mc', { q: 'Frage', opts: ['richtig', 'falsch'], a: 0, sol: 'Erklär
 
 Typen: `mc`, `multi`, `num`, `order`, `match`, `tt` (Wahrheitstabelle), `sim`.
 Rechenaufgaben mit variablen Zahlen stehen als Generator in `MSR.gens` und werden mit `gn(thema, 'name')` eingebunden.
+
+## Weiteres Projekt im Repository
+
+`spin-coach/` – Lern- und Analysetool für 3-Max Spin & Gold (Hand-Review per Sprache, Trainer, Ranges, Statistik). Details in `spin-coach/README.md`.

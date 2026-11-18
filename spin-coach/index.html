@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e1311">
+<meta name="description" content="Spin Coach: Lern- und Analysetool für 3-Max Spin & Gold – Hand-Review per Sprache, Trainer, Ranges, Statistik.">
+<title>Spin Coach</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#review" aria-label="Spin Coach">
+      <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="16" r="7" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3.6 2.2"/><circle cx="16" cy="16" r="2.4" fill="var(--accent)"/></svg>
+      <span>Spin Coach</span>
+    </a>
+    <nav class="tabs" id="tabs" aria-label="Bereiche">
+      <a href="#review" data-tab="review"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span>Review</span></a>
+      <a href="#trainer" data-tab="trainer"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.8"/></svg><span>Trainer</span></a>
+      <a href="#ranges" data-tab="ranges"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 9.3h16M4 14.6h16M9.3 4v16M14.6 4v16"/></svg><span>Ranges</span></a>
+      <a href="#stats" data-tab="stats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Statistik</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <section id="view-review" class="view" hidden></section>
+  <section id="view-trainer" class="view" hidden></section>
+  <section id="view-ranges" class="view" hidden></section>
+  <section id="view-stats" class="view" hidden></section>
+</main>
+
+<noscript><p class="wrap">Spin Coach benötigt JavaScript.</p></noscript>
+
+<script src="js/core/cards.js"></script>
+<script src="js/core/eval.js"></script>
+<script src="js/data/eq2.js"></script>
+<script src="js/data/pushfold.js"></script>
+<script src="js/core/equity.js"></script>
+<script src="js/input/parser.js"></script>
+<script src="js/core/game.js"></script>
+<script src="js/strategy/preflop.js"></script>
+<script src="js/strategy/postflop.js"></script>
+<script src="js/strategy/coach.js"></script>
+<script src="js/store.js"></script>
+<script src="js/input/voice.js"></script>
+<script src="js/ui/ui.js"></script>
+<script src="js/ui/review.js"></script>
+<script src="js/ui/trainer.js"></script>
+<script src="js/ui/ranges.js"></script>
+<script src="js/ui/stats.js"></script>
+<script src="js/ui/app.js"></script>
+</body>
+</html>
